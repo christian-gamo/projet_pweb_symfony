@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+      
+        <title>{% block title %}Bienvenue!{% endblock %}</title>
+        {% block stylesheets %}		
+            <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+            <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+      		<link rel="stylesheet" href="{{ asset('css/linearicons.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('css/owl.carousel.css') }}"/>
+			<link rel="stylesheet" href="{{ asset('css/nice-select.css') }}"/>			
+			<link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}"/>    
+            <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css"/>
+
+        {% endblock %}
+    </head>
+    <style>
+      .jumbotron {
+      background-color: #272b30; color:white;margin-bottom:0rem;
+      }
+      .model-area{
+          background-color:white;
+      }
+      #titre,#texte{
+          color:rgb(33, 37, 41);
+      }
+      .btn_connexion{
+          margin-top:50px;
+          margin-bottom:150px;
+      }
+      .space_top{
+          margin-top:40px;
+      }
+      .space_bottom{
+          margin-bottom:150px;
+      }
+
+    </style>
+
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a class="navbar-brand" href="/">JMI Industries</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarColor02">
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                      <a class="nav-link" href="/login">Connexion <span class="sr-only">(current)</span></a>
+                  </li>
+                  {% if is_granted('ROLE_CLIENT') %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="ajoutFacturation">Louer</a>
+                  </li>
+                  {% endif %}
+                  {% if is_granted('ROLE_CLIENT') %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="liste_des_factures">Liste des factures</a>
+                  </li>
+                  {% endif %}
+                  {% if is_granted('ROLE_CLIENT') %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="liste_des_vehicules_louees">Liste des véhicules loués</a>
+                  </li>
+                  {% endif %}
+                  {% if is_granted('ROLE_LOUEUR') %}
+                  <li class="nav-item">
+                      <a class="nav-link" href="/ajoutVehicule">Ajout de véhicules</a>
+                  </li>          
+                  {% endif %}
+                  {% if is_granted('ROLE_LOUEUR') %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="liste_des_facturations">Liste des facturations</a>
+                </li>        
+                  {% endif %}
+                  {% if is_granted('ROLE_ADMIN') %}
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrateur</a>
+                          <div class="dropdown-menu">
+                          <a class="dropdown-item" href="admin/facturation">Gérer les facturations</a>
+                          <a class="dropdown-item" href="admin/vehicule">Gérer les véhicules</a>
+                          
+                      </li>
+                  {% endif %}
+                  <li class="nav-item">
+                    <a class="nav-link" href={{ path('about_us') }}>A propos</a>
+                </li>
+              </ul> 
+          </div>
+      </nav>
+ 
+      {% block body %}
+
+      
+      {% endblock %}
+
+      {% block footer %}
+	
+                        <!-- Footer -->
+        <footer class="page-footer font-small cyan darken-3" 
+          style="
+            background-image: url('/img/footer.jpg');
+            bottom: 0;
+            left: 0;
+            right: 0;
+          ">
+
+          <!-- Footer Elements -->
+          <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+              <!-- Grid column -->
+              <div class="col-md-12 py-5">
+                <div class="mb-5 flex-center"style="MARGIN-LEFT: 321px;">
+
+                  <!-- Facebook -->
+                  <a class="fb-ic">
+                    <i class="fa fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                  </a>
+                  <!-- Twitter -->
+                  <a class="tw-ic">
+                    <i class="fa fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                  </a>
+                  <!-- Google +-->
+                  <a class="gplus-ic">
+                    <i class="fa fa-google-plus fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                  </a>
+                  <!--Linkedin -->
+                  <a class="li-ic">
+                    <i class="fa fa-linkedin fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                  </a>
+                  <!--Instagram-->
+                  <a class="ins-ic">
+                    <i class="fa fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                  </a>
+                  <!--Pinterest-->
+                  <a class="pin-ic">
+                    <i class="fa fa-pinterest fa-lg white-text fa-2x"> </i>
+                  </a>
+                </div>
+              </div>
+              <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+          </div>
+          <!-- Footer Elements -->
+
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3">© 2020 Copyright:
+            <a href="https://mdbootstrap.com/"> JMI-Industries.com</a>
+          </div>
+          <!-- Copyright -->
+
+        </footer>
+<!-- Footer -->
+        {% endblock %}
+
+
+        {% block javascripts %}
+          
+      <script src="https://cdn.jsdelivr.net/npm/axentix@0.5.3/dist/js/axentix.min.js"></script>
+
+      <script src="js/vendor/jquery-2.2.4.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+			<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>			
+  		<script src="js/easing.min.js"></script>			
+			<script src="js/hoverIntent.js"></script>
+			<script src="js/superfish.min.js"></script>	
+			<script src="js/jquery.ajaxchimp.min.js"></script>
+			<script src="js/jquery.magnific-popup.min.js"></script>	
+			<script src="js/owl.carousel.min.js"></script>			
+			<script src="js/jquery.sticky.js"></script>
+			<script src="js/jquery.nice-select.min.js"></script>	
+			<script src="js/waypoints.min.js"></script>
+			<script src="js/jquery.counterup.min.js"></script>					
+			<script src="js/parallax.min.js"></script>		
+			<script src="js/mail-script.js"></script>	
+      <script src="js/main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>	
+      <script>
+            $(document).ready(function() {
+                // you may need to change this code if you are not using Bootstrap Datepicker
+                $('.js-datepicker').datepicker({
+                    
+                });
+            });
+      </script>	
+        {% endblock %}
+    </body>
+</html>
+

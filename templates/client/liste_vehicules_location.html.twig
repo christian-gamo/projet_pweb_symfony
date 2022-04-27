@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste{% endblock %}
+
+{% block body %}
+
+<style>
+.img{
+    width:50px;
+    height:50px;
+}
+
+</style>
+
+    <h1> Liste de vos véhicules loués </h1>
+
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Type</th>
+      <th scope="col">Moteur</th>
+      <th scope="col">Vitesse</th>
+      <th scope="col">Nombre de places</th>
+      <th scope="col">Location</th>
+      <th scope="col">Photo</th>
+    </tr>
+  </thead>
+  <tbody>
+
+   {% for vehicule in vehicules %}
+    <tr class="table-active">
+      <th scope="row">{{vehicule.ID}}</th>
+      <td>{{vehicule.Type}} </td>
+      <td>{{vehicule.caract.Moteur}} </td>
+      <td>{{vehicule.caract.Vitesse}}</td>
+      <td class="text-center">{{vehicule.caract.NombreDePlaces}}</td>
+      <td>{{vehicule.Location}} </td>  
+      <td><img src="{{ asset('uploads/vehicule_image/' ~ vehicule.image)}}" class="img" /></td>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+{% endblock %}
+

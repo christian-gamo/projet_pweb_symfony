@@ -1,0 +1,179 @@
+	{% extends 'base.html.twig' %}
+
+    {% block title %}A propos de JMI!{% endblock %}
+
+    {% block body %}
+		<style>
+
+.bg-cover {
+    background-size: cover !important;
+}
+
+
+		</style>
+		
+			<!-- Bootstrap Static Header -->
+<div style="    background-image: url('/img/pv.jpg');
+" class="jumbotron bg-cover text-white">
+    <div class="container py-5 text-center">
+        <h1 class="display-4 font-weight-bold" style="color:rgb(33, 37, 41);">JMI Industries</h1>
+        <p class="font-italic mb-0" style="color:rgb(33, 37, 41);"><strong>Projet PWEB Année 2020/2021.</strong></p>
+        <p class="font-italic" style="color:rgb(33, 37, 41);" ><strong>Site crée par Christian Gamo et Soumare Mouhamadou <br>||<br> Groupe 206 </strong>
+        </p>
+        <a href="/" role="button" class="btn btn-primary px-5">Conduire devient facile !</a>
+    </div>
+</div>
+
+
+			
+		
+			<!-- End banner Area -->	
+			<!-- Start home-about Area -->
+			<section class="home-about-area" id="about">
+				<div class="container-fluid">				
+					<div class="row justify-content-center align-items-center">
+						<div class="col-lg-6 no-padding home-about-left">
+							<img class="img-fluid" src="{{asset('/img/header.jpg')}}" style="margin-left:-15px" alt="">
+						</div>
+						<div class="col-lg-6 no-padding home-about-right">
+							<h1>Un service de location<br>
+							ou le client est Roi </h1>
+							<p>
+								<span>Notre but premier est votre satisfaction </span>
+							</p>
+							<p>
+								 JMI Industries est une jeune entreprise de location de voitures . Elle a été crée en 2009 et grandit de plus en plus. Aujourd'hui ,
+								 notre service s'étend à l'Europe. Le parc de véhicules JMI compte plus de 6 catégories différentes de véhicules et il est prévu la mise en
+								 place d'une flotte de véhicules utilitaires courant 2022.
+							</p>
+							<a class="text-uppercase primary-btn" href="#">Plus de détails </a>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End home-about Area -->	
+
+			
+					
+
+			<!-- Start fact Area -->
+			<section class="facts-area section-gap" style="padding-top: 27px;background-color: darkgoldenrod;
+" id="facts-area">
+				<div class="container">
+					<div class="row">
+						<div class="col single-fact">
+							<h1 class="counter">7</h1>
+							<p>Marques de <br> prestige</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">16784</h1>
+							<p>Client satisfait</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">1059</h1>
+							<p>location par <br> jour</p>
+						</div>
+						<div class="col single-fact">
+							<h1 class="counter">800 </h1>
+							<p>Voiture</p>
+						</div>	
+						<div class="col single-fact">
+							<h1 class="counter">8</h1>
+							<p>Catégories <br> de véhicules </p>
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- end fact Area -->							
+  <style>
+      .main-block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      }
+      form {
+      padding: 25px;
+      margin: 25px;
+      box-shadow: 0 2px 5px #f5f5f5; 
+      background: #f5f5f5; 
+      }
+      .fas {
+      margin: 25px 10px 0;
+      font-size: 72px;
+      color: #fff;
+      }
+      .fa-envelope {
+      transform: rotate(-20deg);
+      }
+      .fa-at , .fa-mail-bulk{
+      transform: rotate(10deg);
+      }
+      input, textarea {
+      width: calc(100% - 18px);
+      padding: 8px;
+      margin-bottom: 20px;
+      border: 1px solid #1c87c9;
+      outline: none;
+      }
+      input::placeholder {
+      color: #666;
+      }
+      button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background: #1c87c9; 
+      font-size: 16px;
+      font-weight: 400;
+      color: #fff;
+      }
+      button:hover {
+      background: #2371a0;
+      }    
+      @media (min-width: 568px) {
+      .main-block {
+      flex-direction: row;
+      }
+      .left-part, form {
+      width: 50%;
+      }
+      .fa-envelope {
+      margin-top: 0;
+      margin-left: 20%;
+      }
+      .fa-at {
+      margin-top: -10%;
+      margin-left: 65%;
+      }
+      .fa-mail-bulk {
+      margin-top: 2%;
+      margin-left: 28%;
+      }
+      
+    </style>
+		  <div class="main-block">
+      <div class="left-part">
+        <i class="fa fa-envelope fa-4x"></i>
+        <i class="fa fa-at fa-4x"></i>
+        <i class="fa fa-mail-bulk fa-4x"></i>
+      </div>
+      <form action="/">
+        <h1>Contactez nous</h1>
+        <div class="info">
+          <input class="fname" type="text" name="name" placeholder="Nom">
+          <input type="text" name="name" placeholder="E-mail">
+          <input type="text" name="name" placeholder="Numéro de téléphone">
+        </div>
+        <p>Message</p>
+        <div>
+          <textarea rows="4"></textarea>
+        </div>
+        <button type="submit" href="/">Soumettre</button>
+      </form>
+    </div>
+			
+            {% endblock %}
+
+

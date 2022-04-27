@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'une nouvelle facturation{% endblock %}
+
+
+{% block body %}
+
+    <div class ="container">
+        <div class = "row"> 
+            <h1 class="text-center">Choisissez une voiture à louer</h1 >
+        </div>
+            {% form_theme formFacturation 'bootstrap_4_horizontal_layout.html.twig' %}
+            {{ form_start(formFacturation) }}
+                {{ form_errors(formFacturation) }}
+
+                {{ form_row(formFacturation.idV) }}
+                {{ form_row(formFacturation.dateD) }}
+                {{ form_row(formFacturation.dateF) }}
+                {{ form_row(formFacturation.save) }}
+            {{ form_end(formFacturation) }}
+      
+    </div>
+ 
+{% endblock %}
+

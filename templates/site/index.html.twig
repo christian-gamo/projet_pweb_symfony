@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Location JMI!{% endblock %}
+
+
+
+{% block body %}
+
+			<section class="model-area section-gap" id="cars">
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+				<div class="container">
+					<div class="row d-flex justify-content-center pb-40">
+						<div class="col-md-8 pb-40 header-text">
+						<h1 class="text-center pb-10" id = "titre" style=" margin-top: 32px;">Choisissez la voiture de vos rêves</h1>
+							<p id = "texte" class="text-center">
+								Loue et vend ton âme à JMI Industries !
+							</p>
+						</div>
+					</div>	
+						
+					
+
+					<div class="active-model-carusel">
+						{% for post in posts %}
+						<div class="row align-items-center single-model item">
+							<div class="col-lg-6 model-left">
+								<div class="title justify-content-between d-flex">
+									 
+									<h4 class="mt-20" style="color:rgb(33, 37, 41);"> {{post.type}}</h4>
+									<h2 style="color: #fab700;">{{post.prixJour}}€<span>/jour</span></h2>
+								</div>
+									<p style="color:rgb(33, 37, 41);">
+									La plus performante dans sa gamme.
+									</p>
+								<strong><p style="color:rgb(33, 37, 41);">
+									Capacité         : {{post.caract.NombreDePlaces}} Personne <br>
+									Moteur           : {{post.caract.Moteur}} <br>
+									Air Conditionné  : Bi-Zone <br>
+									Vitesse		     : {{post.caract.Vitesse}}
+								</p></strong>
+								{% if is_granted('ROLE_CLIENT') %}
+								<a class="text-uppercase primary-btn" href="/ajoutFacturation">Louez</a>
+								{% endif %}
+							</div>
+							<div class="col-lg-6 model-right">
+								<img class="img-fluid" src="{{ asset('uploads/vehicule_image/' ~ post.image)}}" alt="{{post.id}}">
+							</div>
+						</div>
+							
+								 {% endfor %}
+							</div>
+
+						
+						</div>												
+				
+			
+
+					
+			</section>
+{# 
+		{% if (app.user)  %} #}
+		<div class="jumbotron text-center" style="background-image: url('/img/car.png">
+		 <div class="container text-center">
+  			<h1>Dépensez peu,louez mieux</h1>
+ 			<p>Profitez d'une location de qualité!</p> 
+			 {# <a class="ctaPrimary" href="https://mailchimp.com/signup/" target="_blank" rel="noopener noreferrer">
+       		 S'inscrire        </a> #}
+				{% if app.user %}
+
+				{% else %}
+				    <button type="button" href="vehicule" class="btn btn-primary text-center">S'inscrire</button>
+				{% endif %}
+		 </div>
+		</div>
+		{# {% endif %} #}
+
+{% endblock %}

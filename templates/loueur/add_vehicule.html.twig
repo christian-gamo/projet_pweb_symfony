@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un nouveau véhicule{% endblock %}
+
+
+{% block body %}
+
+    <div class ="container justify-content-center align-items-center">
+        <div class = "row"> 
+            <h1 class="text-center">Ajout d'un nouveau véhicule</h1 >
+        </div>
+        
+            
+            {% form_theme formVehicule 'bootstrap_3_layout.html.twig' %}
+            {{ form_start(formVehicule) }}
+                {{ form_errors(formVehicule) }}
+
+                {{ form_row(formVehicule.type) }}
+                {{ form_row(formVehicule.caract, { 'label': 'Caractères' }) }}
+                {{ form_row(formVehicule.location) }}
+                {{ form_row(formVehicule.imageFile) }}
+                {{ form_row(formVehicule.prixJour) }}
+                {{ form_row(formVehicule.save) }}
+            {{ form_end(formVehicule) }}
+        
+    
+    </div>
+ 
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Gérer les facturations !{% endblock %}
+
+{% block body %}
+<style>
+.img{
+    width:50px;
+    height:50px;
+}
+</style>
+
+{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+	{% endfor %}
+    <h1> Gérer les facturations </h1>
+
+<a href="/admin/facturation/ajoutFacturation">
+    <button type="button"  class="btn btn-primary btn-lg" <a href="/admin/vehicule/ajoutVehicule" >Ajouter une location</button>
+</a>
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">IdFacture</th>
+      <th scope="col">IdClient</th>
+      <th scope="col">IdVehicule</th>
+      <th scope="col">Date début</th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">Valeur</th>
+      <th scope="col">etat</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+   {% for facturation in facturation %}
+    <tr class="table-active">
+      <th scope="row">{{facturation.id}}</th>
+      <td>{{facturation.idC}} </td>
+      <td>{{facturation.idV}} </td>
+      <td>{{facturation.dateD|date("m/d/y")}}</td>
+      <td class="text-center">{{facturation.dateF|date("m/d/y")}}</td>
+      <td>{{facturation.valeur}} </td>  
+      <td>{{facturation.etat}} </td>  
+      <td class="text-center">
+      <a href="{{ path("admin_vehicule_modifier", {id: facturation.id}) }}" >
+      <button type="button" class="btn btn-secondary">Modifier</button>
+      </a> 
+      <a href="{{ path("admin_vehicule_supprimer", {id: facturation.id}) }}" >
+        <button type="button" class="btn btn-secondary">Supprimer</button>
+      </a> 
+       </td>
+
+    </tr>
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+{% endblock %}

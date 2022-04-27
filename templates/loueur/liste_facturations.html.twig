@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste{% endblock %}
+
+{% block body %}
+
+<style>
+.img{
+    width:50px;
+    height:50px;
+}
+
+</style>
+
+    <h1> Liste des facturations </h1>
+
+
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nom de la voiture</th>
+      <th scope="col">Nom du client</th>
+      <th scope="col">Date de début</th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">Somme de la facture</th>
+      <th scope="col">Etat du règlement</th>
+   
+    </tr>
+  </thead>
+  <tbody>
+
+   {% for facturation in facturations %}
+    <tr class="table-active">
+      <th scope="row">{{facturation.id}}</th>
+      <td>{{facturation.getIdV().getType()}} </td>
+      <td>{{facturation.getIdC().getNom()}} </td>
+      <td>{{facturation.getDateD()|date('d-m-Y')}} </td>
+      <td>{{facturation.getDateF()|date('d-m-Y')}} </td>
+      <td>{{facturation.valeur}} €</td>
+      <td> 
+        {% if facturation.etat == 0 %}
+            Non réglé
+        {% else %}
+            Réglé
+        {% endif %}
+      </td>
+      
+
+    {% endfor %}
+    
+  </tbody>
+</table>
+
+{% endblock %}
+
